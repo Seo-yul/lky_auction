@@ -77,14 +77,6 @@ WSGI_APPLICATION = 'lky.wsgi.application'
 # https://docs.djangoproject.com/en/3.1/ref/settings/#databases
 
 DATABASES = {
-    # 'default': {
-    #     'ENGINE': 'djongo',
-    #     "NAME": "lky",
-    #     "USER": "lkymongodb",
-    #     "PASSWORD": "lkymongodb",
-    #     "HOST": "mongodb+srv://lkymongodb:lkymongodb@lky-cluster0.797cl.mongodb.net/lky?retryWrites=true&w=majority",
-    #     "authMechanism": "SCRAM-SHA-1",
-    #  },
     'default': {
             'ENGINE': 'djongo',
             'NAME': 'lky',

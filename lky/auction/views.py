@@ -4,6 +4,7 @@ from .forms import registerForm
 def index(request):
     return render(request, 'auction/index.html')
 
+
 def register(request):
     return render(request, 'auction/register.html')
 

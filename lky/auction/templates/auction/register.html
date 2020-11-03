@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<table>
+    <h2>
+        경매등록
+    </h2>
+    <form method="POST" class="register-form">
+        {% csrf_token %}
+        <table class="table table-bordered table-hover">
+            {{ form.as_table }}
+        </table>
+        <button type="submit" class="save btn btn-info">저장</button>
+    </form>
+</table>
+</body>
+</html>

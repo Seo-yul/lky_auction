@@ -1,0 +1,14 @@
+<div>
+    <h1>회원가입</h1>
+    <form action="{% url 'signup' %}" method="POST">
+        {% csrf_token %}
+        Username: <input type="text" name="username" id="">
+        <br>
+        Password: <input type="password" name="password1" id="">
+        <br>
+        Confirm Password: <input type="password" name="password2" id="">
+        <br>
+        <!-- <input type="hidden" name="path" value={{request.path}}> -->
+        <input type="submit" value="sign up">
+    </form>
+</div>

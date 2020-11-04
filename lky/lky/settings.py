@@ -35,6 +35,7 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'django.contrib.humanize',      # 돈 3자리수마다 점찍기
     'auction.apps.AuctionConfig',
     'user.apps.UserConfig',
 

@@ -1,5 +1,5 @@
 from django.db import models
-
+from datetime import datetime, timedelta
 
 class Product(models.Model):
     # 상품명
@@ -17,9 +17,9 @@ class Product(models.Model):
     max_price = models.IntegerField(default=0)
     
     # 시작일
-    start_date = models.DateField()
+    start_date = models.DateTimeField(default=datetime.now())
     # 마감일
-    end_date = models.DateField()
+    end_date = models.DateTimeField(default=datetime.now()+timedelta(days=3))
     # 게시글 등록 날짜
     pub_date = models.DateTimeField(auto_now_add=True)
     # 대분류

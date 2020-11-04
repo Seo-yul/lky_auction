@@ -1,8 +1,7 @@
 from django.shortcuts import render,redirect
-from .forms import registerForm#
+from .forms import registerForm
 from .models import Product
 from datetime import datetime
-
 
 def index(request):
     product = Product.objects.all().order_by('-pub_date')[:6]
@@ -16,6 +15,9 @@ def index(request):
 
     return render(request, 'auction/index.html', {'product': product})
 
+
+# def auctionRegister(request):
+#     return render(request, 'auction/auction_register.html')
 
 def auctionRegister(request):
     # return render(request, 'auction/auction_register.html')

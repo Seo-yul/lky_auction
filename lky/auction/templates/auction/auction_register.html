@@ -1,29 +1,38 @@
 {% extends 'auction/base.html' %}
 {% block content %}
-<!--은서꺼-->
-    <div class="input-group input-group-sm mb-3">
-        <div class="input-group-prepend">
-        <span class="input-group-text" id="inputGroup-sizing-sm">Small</span>
-        </div>
-        <input type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-sm">
-        <div class="input-group-prepend">
-            <span class="input-group-text" id="inputGroupFileAddon01">Upload</span>
-        </div>
-        <div class="custom-file">
-            <input type="file" class="custom-file-input" id="inputGroupFile01" aria-describedby="inputGroupFileAddon01">
-            <label class="custom-file-label" for="inputGroupFile01">Choose file</label>
-        </div>
-    </div>
-<table>
-    <h2>
-        경매등록
-    </h2>
-    <form method="POST" class="register-form">
-        {% csrf_token %}
-        <table class="table table-bordered table-hover">
-            {{ form.as_table }}
-        </table>
-        <button type="submit" class="save btn btn-info">저장</button>
-    </form>
-</table>
+
+ <section class="page-section portfolio" id="portfolio" style="margin-top: 100px">
+            <!-- 경매등록 Section Heading-->
+            <div class="container">
+                <!-- 경매등록 Section Heading-->
+                <div class="text-center">
+                    <h2 class="page-section-heading text-secondary mb-0 d-inline-block">경매 등록 </h2>
+                </div>
+                <!-- Icon Divider-->
+                <div class="divider-custom">
+                    <div class="divider-custom-line"></div>
+                    <div class="divider-custom-icon"><i class="fas fa-star"></i></div>
+                    <div class="divider-custom-line"></div>
+                </div>
+                <!-- 경매 Grid Items-->
+                <div class="row justify-content-center">
+                    <!-- Portfolio Items-->
+                    <div class="font-weight-bold">
+                        <table>
+                            <form method="POST" class="register-form">
+                                {% csrf_token %}
+                                <table class="table table-bordered table-hover">
+                                    {{ form.as_table }}
+                                </table>
+                                <button type="submit" class="save btn btn-info float-right">저장</button>
+                            </form>
+                        </table>
+                    </div>
+
+                </div>
+            </div> <!-- container  End -->
+ </section>
+
+
+
 {% endblock %}

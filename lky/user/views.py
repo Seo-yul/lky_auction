@@ -8,7 +8,8 @@ def signup(request):
     if request.method == "POST":
         if request.POST["password1"] == request.POST["password2"]: # 비밀번호가 같으면 회원가입
             user = User.objects.create_user(
-                username=request.POST["username"],password=request.POST["password1"]
+                username=request.POST["username"],password=request.POST["password1"],
+                email=request.POST["email"]
             )
 
             my_user=My_user(user=user,credit=0)

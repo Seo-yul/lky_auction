@@ -29,14 +29,12 @@ def auctionRegister(request):
     # return render(request, 'auction/auction_register.html')
     if request.method == 'POST':
         file_data = request.FILES
-        print()
-        print()
         file_name = file_data['photo'].name
-        list()
-        data_name = str(datetime.now())[:10]+'-'+str(uuid.uuid1()) +
+        idx = list(file_name).index('.')
+        f_type_list = list(file_name)[idx:]
+        f_type = ''.join(f_type_list)
+        data_name = str(datetime.now())[:10] + '-' + str(uuid.uuid1()) + f_type
         file_data['photo'].name = data_name
-        print()
-        print()
         form = registerForm(request.POST, request.FILES)
         # print(form.is_valid())
         if form.is_valid():

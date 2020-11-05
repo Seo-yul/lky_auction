@@ -1,0 +1,87 @@
+{% extends 'auction/base.html' %}
+{% load static %}
+{% load humanize %}
+{% block content %}
+        <section class="page-section portfolio" id="portfolio" style="margin-top: 100px">
+            <!-- Portfolio Section Heading-->
+            <div class="container">
+                <!-- Portfolio Section Heading-->
+                <div class="text-center">
+                    <h2 class="page-section-heading text-secondary mb-0 d-inline-block">경매 목록 </h2>
+                </div>
+                <!-- Icon Divider-->
+                <div class="divider-custom">
+                    <div class="divider-custom-line"></div>
+                    <div class="divider-custom-icon"><i class="fas fa-star"></i></div>
+                    <div class="divider-custom-line"></div>
+                </div>
+                <!-- Portfolio Grid Items-->
+                <div class="row justify-content-center">
+                    <!-- Portfolio Items-->
+                    {% for i in product %}
+                        <div class="col-md-6 col-lg-4 mb-5">
+                            <div class="portfolio-item mx-auto" data-toggle="modal" data-target="#portfolioModal"  data-name="{{ i.name }}" data-content="{{ i.content }}">
+                                <div class="portfolio-item-caption d-flex align-items-center justify-content-center h-100 w-100">
+                                    <div class="portfolio-item-caption-content text-center text-white"><i class="fas fa-search-dollar fa-2x"></i></i></div>
+                                </div>
+                                {% if i.photo %}
+                                <img class="img-fluid" src="{{ i.photo.url }}" alt=""/>
+                                {% else %}
+                                <img class="img-fluid" src="{% static 'assets/img/portfolio/cabin.png' %}" alt="Log Cabin"/>
+                                {% endif %}
+                                <div class="font-weight-bold">
+                                    <span class="float-left blockquote">{{ i.name }}</span><br>
+                                    <span class="float-right ">시작 가격:{{ i.min_price | intcomma }}￦</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Portfolio Modal -->
+                        <div class="portfolio-modal modal fade" id="portfolioModal" tabindex="-1" role="dialog" aria-hidden="true">
+                            <div class="modal-dialog modal-xl" role="document">
+                                <div class="modal-content">
+                                    <button class="close" type="button" data-dismiss="modal" aria-label="Close"><span aria-hidden="true"><i class="fas fa-times"></i></span></button>
+                                    <div class="modal-body text-center">
+                                        <div class="container">
+                                            <div class="row justify-content-center">
+                                                <div class="col-lg-8">
+                                                    <!-- Portfolio Modal - Title-->
+                                                    <h2 class="product-name text-secondary mb-0"></h2>
+                                                    <!-- Icon Divider-->
+                                                    <div class="divider-custom">
+                                                        <div class="divider-custom-line"></div>
+                                                        <div class="divider-custom-icon"><i class="fas fa-star"></i></div>
+                                                        <div class="divider-custom-line"></div>
+                                                    </div>
+                                                    <!-- Portfolio Modal - Image--><img class="img-fluid rounded mb-5" src="{% static 'assets/img/portfolio/cabin.png' %}" alt="Log Cabin"/>
+                                                    <!-- Portfolio Modal - Text-->
+                                                    <p class="product-detail mb-5">상품설명</p>
+                                                    <button class="btn btn-primary" href="#" data-dismiss="modal"><i class="fas fa-check"></i>입찰하기</button>
+                                                    <button class="btn btn-primary" href="#" data-dismiss="modal"><i class="fas fa-times fa-fw"></i>닫기</button>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    {% endfor %}
+                </div>
+            </div>
+        </section>
+
+<script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+<script>
+    $(function() {
+        $('#portfolioModal').on('show.bs.modal', function (event) {
+            var button = $(event.relatedTarget)
+
+            var name = button.data('name')
+            $(".product-name").html(name)
+
+            var content = button.data('content')
+            $(".product-detail").html(content)
+        })
+    })
+</script>
+{% endblock %}

@@ -64,3 +64,10 @@ def charging(request):
 #     product = Product
 #     return render(request, product)
 
+
+def auction_list(request):
+    id = request.POST.get("products", None)
+    print(id)
+    product=Product.objects.filter(category=id).order_by('-pub_date')[:6]
+    print(product)
+    return render(request,'auction/auction_list.html',{"product":product})

@@ -1,13 +1,33 @@
 {% extends 'auction/base.html' %}
 {% block content %}
-<!--은서꺼-->
-    <h3>blank</h3>
-    <h3>blank</h3>
-    <h3>--- </h3>
-    <!--버튼 클릭시, charging함수 실행 -->
-     <div class="input-group input-group-sm mb-3">
-        <a href="{% url 'charging' %}" class="btn btn-lg">50,000 크레딧 충전</a>
-     </div>
+ <section class="page-section portfolio" id="portfolio" style="margin-top: 100px">
+            <!-- 경매등록 Section Heading-->
+            <div class="container">
+                <!-- 경매등록 Section Heading-->
+                <div class="text-center">
+                    <h2 class="page-section-heading text-secondary mb-0 d-inline-block">크레딧 충전 </h2>
+                </div>
+                <!-- Icon Divider-->
+                <div class="divider-custom">
+                    <div class="divider-custom-line"></div>
+                    <div class="divider-custom-icon"><i class="fas fa-star"></i></div>
+                    <div class="divider-custom-line"></div>
+                </div>
+                <!-- 크레딧 여기 나열-->
+                <div class="row justify-content-center">
+                    <!-- Portfolio Items-->
+                    <div class="font-weight-bold">
+                        <!--버튼 클릭시, charging함수 실행 -->
+                        <div class="input-group input-group-sm mb-3">
+                            <a href="{% url 'charging' %}" class="btn btn-lg">50,000 크레딧 충전</a>
+                        </div>
+                    </div>
+                </div>
+            </div> <!-- container  End -->
+ </section>
+
+
+
 
 
 {% endblock %}

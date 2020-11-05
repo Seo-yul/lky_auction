@@ -26,10 +26,11 @@ def index(request):
 def auctionRegister(request):
     # return render(request, 'auction/auction_register.html')
     if request.method == 'POST':
-        form = registerForm(request.POST)
-
+        form = registerForm(request.POST, request.FILES)
+        # print(form.is_valid())
         if form.is_valid():
             prod = form.save(commit=False)
+            # print(prod)
             # prod.author = request.user
             # prod.published_date = timezone.now()
             prod.save()

@@ -6,11 +6,12 @@ class Product(models.Model):
     # 상품명
     name = models.CharField(max_length=60, default='')
     # 사진 -> media file 설정 해주기
-    # photo = models.ImageField(upload_to='images/',blank=True, null=True)
+    photo = models.ImageField(blank=True, null=True)
+
     # 글 내용
     content = models.TextField()
     # 판매자 아이디 -> django User 상속
-    seller_id = models.ForeignKey(User, on_delete=models.CASCADE, null=False)
+    # seller_id = models.ForeignKey(User, on_delete=models.CASCADE, null=False)
     
     # 최소가격
     min_price = models.IntegerField(default=0)

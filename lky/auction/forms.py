@@ -16,6 +16,9 @@ class registerForm(forms.Form):
     # 제목 최소 세글자 이상
     name = forms.CharField(validators=[min_length_3_validator])
 
+    # 이미지 업로드
+    photo = forms.ImageField()
+
     # 최소 가격
     min_price = forms.IntegerField()
 

@@ -24,7 +24,12 @@
                             <div class="portfolio-item mx-auto">
                                 <div class="portfolio-item-caption d-flex align-items-center justify-content-center h-100 w-100">
                                     <div class="portfolio-item-caption-content text-center text-white"><i class="fas fa-search-dollar fa-2x"></i></i></div>
-                                </div><img class="img-fluid" src="{% static 'assets/img/portfolio/cabin.png' %}" alt="Log Cabin"/>
+                                </div>
+                                {% if i.photo %}
+                                <img class="img-fluid" src="{{ i.photo.url }}" alt=""/>
+                                {% else %}
+                                <img class="img-fluid" src="{% static 'assets/img/portfolio/cabin.png' %}" alt="Log Cabin"/>
+                                {% endif %}
                                 <div class="font-weight-bold">
                                     <span class="float-left blockquote">{{ i.name }}</span><br>
                                     <span class="float-right ">시작 가격:{{ i.min_price | intcomma }}￦</span>

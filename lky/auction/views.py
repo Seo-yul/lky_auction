@@ -3,6 +3,8 @@ from .forms import registerForm
 from .models import Product
 from django.contrib.auth.models import User
 from user.models import My_user
+import uuid
+import datetime
 
 # Create your views here.
 from datetime import datetime
@@ -26,6 +28,13 @@ def index(request):
 def auctionRegister(request):
     # return render(request, 'auction/auction_register.html')
     if request.method == 'POST':
+        file_data = request.FILES
+        file_name = file_data['photo'].name
+        idx = list(file_name).index('.')
+        f_type_list = list(file_name)[idx:]
+        f_type = ''.join(f_type_list)
+        data_name = str(datetime.now())[:10] + '-' + str(uuid.uuid1()) + f_type
+        file_data['photo'].name = data_name
         form = registerForm(request.POST, request.FILES)
         # print(form.is_valid())
         if form.is_valid():

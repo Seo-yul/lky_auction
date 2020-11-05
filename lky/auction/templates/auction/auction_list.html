@@ -25,7 +25,9 @@
                                     <div class="portfolio-item-caption-content text-center text-white"><i class="fas fa-search-dollar fa-2x"></i></i></div>
                                 </div>
                                 {% if i.photo %}
-                                <img class="img-fluid" src="{{ i.photo.url }}" alt=""/>
+                                <img class="img-fluid" src=../media/{{i.photo}} alt=""/>
+                                    <span class="float-left blockquote">12121{{ i.photo }}</span><br>
+
                                 {% else %}
                                 <img class="img-fluid" src="{% static 'assets/img/portfolio/cabin.png' %}" alt="Log Cabin"/>
                                 {% endif %}

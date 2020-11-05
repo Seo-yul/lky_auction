@@ -18,7 +18,7 @@
     <h2>
         경매등록
     </h2>
-    <form method="POST" class="register-form">
+    <form method="POST" class="register-form" enctype="multipart/form-data">
         {% csrf_token %}
         <table class="table table-bordered table-hover">
             {{ form.as_table }}
